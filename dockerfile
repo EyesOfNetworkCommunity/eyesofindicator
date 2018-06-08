@@ -1,15 +1,15 @@
-FROM alpine:3.7
+FROM ruby:alpine
 
 LABEL LABEL maintainer "Jean-Philippe Levy <jean-philippe.levy@axians.com>"
 
 RUN apk update && apk upgrade \
-    && apk add tzdata curl wget bash \
-    && apk add ruby ruby-bundler nodejs
+    && apk add tzdata curl wget bash nodejs
 
 # Needed to make native extensions 
-RUN apk add ruby-dev g++ musl-dev make \
+RUN apk add  g++ musl-dev make \
     && echo "gem: --no-document" > /etc/gemrc \
-    && gem install bundler smashing json
+    && gem install bundler json \
+    && gem install smashing
 
 # Create dashboard and link volumes
 RUN smashing new eoi

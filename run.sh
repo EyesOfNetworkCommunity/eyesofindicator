@@ -2,7 +2,7 @@
 
 function install_samples() {
   SAMPLES=$@
-  if [[ -n "$SAMPLES" ]]; then
+  if [[ "$SAMPLES" == "True" ]]; then
       smashing new /eoi
   fi
 }

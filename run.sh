@@ -1,5 +1,12 @@
 #!/bin/bash
 
+function install_samples() {
+  SAMPLES=$@
+  if [[ "$SAMPLES" == "True" ]]; then
+      smashing new /eoi
+  fi
+}
+
 function install_json() {
   echo -e "\ngem 'json'" >> Gemfile
   echo -e "\nAdded json's explicit dependency on Gemfile."
@@ -37,6 +44,7 @@ function install_apks() {
 }
 
 if [[ ! -e /installed ]]; then
+  install_samples $SAMPLES
   install_json
   install_apks $APKS
   install_widgets $WIDGETS

@@ -9,10 +9,11 @@ RUN apk update && apk upgrade \
 RUN apk add  g++ musl-dev make \
     && echo "gem: --no-document" > /etc/gemrc \
     && gem install bundler json \
-    && gem install smashing
+    && gem install specific_install \
+    && gem specific_install https://github.com/rverchere/smashing.git -b new-skip-overwrite
 
 # Create dashboard and link volumes
-RUN smashing new eoi
+RUN smashing new eoi --skip
 
 WORKDIR /eoi
 

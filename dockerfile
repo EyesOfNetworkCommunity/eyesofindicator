@@ -1,6 +1,6 @@
 FROM ruby:alpine
 
-LABEL LABEL maintainer "Jean-Philippe Levy <jean-philippe.levy@axians.com>"
+MAINTAINER "Jean-Philippe Levy <jean-philippe.levy@axians.com>"
 
 RUN apk update && apk upgrade \
     && apk add tzdata curl wget bash nodejs

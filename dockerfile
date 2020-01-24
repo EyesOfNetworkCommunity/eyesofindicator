@@ -34,7 +34,7 @@ COPY run.sh /
 
 VOLUME ["/dashboards", "/jobs", "/lib-eoi", "/config", "/public", "/widgets", "/assets"]
 
-ENV PORT 3030
+ENV PORT 8080
 EXPOSE ${PORT}
 WORKDIR /eoi
 

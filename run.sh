@@ -1,10 +1,7 @@
 #!/bin/bash
 
 function install_samples() {
-  SAMPLES=$@
-  if [[ "$SAMPLES" == "True" ]]; then
-      smashing new /eoi
-  fi
+  smashing new /eoi
 }
 
 function install_json() {
@@ -44,7 +41,7 @@ function install_apks() {
 }
 
 if [[ ! -e /installed ]]; then
-  install_samples $SAMPLES
+  install_samples
   install_json
   install_apks $APKS
   install_widgets $WIDGETS
